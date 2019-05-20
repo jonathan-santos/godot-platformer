@@ -1,66 +1,23 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Assets/Scripts/PlayerMovement.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Sprites/Player/Idle0.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Sprites/Player/Jump0.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Sprites/Player/Jump1.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Sprites/Player/Run0.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Sprites/Player/Run1.png" type="Texture" id=6]
-[ext_resource path="res://Assets/Sprites/Player/Run2.png" type="Texture" id=7]
-[ext_resource path="res://Assets/Sprites/Player/Run3.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Sprites/Player/Run4.png" type="Texture" id=9]
-[ext_resource path="res://Assets/Sprites/Player/Run7.png" type="Texture" id=10]
-[ext_resource path="res://Assets/Sprites/Player/Jump3.png" type="Texture" id=11]
-[ext_resource path="res://Assets/Sprites/Player/Jump4.png" type="Texture" id=12]
-[ext_resource path="res://Assets/Tilesets/JungleDirtTileset.tres" type="TileSet" id=13]
-
-[sub_resource type="SpriteFrames" id=1]
-animations = [ {
-"frames": [ ExtResource( 2 ) ],
-"loop": true,
-"name": "idle",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
-"loop": false,
-"name": "jump",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
-"loop": true,
-"name": "run",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 11 ), ExtResource( 12 ) ],
-"loop": false,
-"name": "fall",
-"speed": 10.0
-} ]
-
-[sub_resource type="CapsuleShape2D" id=2]
-radius = 13.5
-height = 29.44
+[ext_resource path="res://Assets/Scenes/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Tilesets/JungleDirtTileset.tres" type="TileSet" id=2]
+[ext_resource path="res://Assets/Scenes/Portal.tscn" type="PackedScene" id=3]
 
 [node name="World" type="Node"]
 
-[node name="Player" type="KinematicBody2D" parent="."]
-position = Vector2( 117.074, 191.113 )
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="AnimatedSprite" parent="Player"]
-position = Vector2( 0.513351, 0 )
-frames = SubResource( 1 )
-animation = "idle"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2( 0.867, 3.682 )
-shape = SubResource( 2 )
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 83.0544, 186.156 )
 
 [node name="TileMap" type="TileMap" parent="."]
-tile_set = ExtResource( 13 )
+tile_set = ExtResource( 2 )
 cell_size = Vector2( 32, 32 )
 format = 1
-tile_data = PoolIntArray( 458753, 536870914, 0, 458754, 536870913, 0, 458755, 536870913, 0, 458756, 536870913, 0, 458757, 536870913, 0, 458758, 536870913, 0, 458759, 536870913, 0, 458760, 536870913, 0, 458761, 536870913, 0, 458762, 536870913, 0, 458763, 536870913, 0, 458764, 536870913, 0, 458765, 536870912, 0, 458769, 536870914, 0, 458770, 536870913, 0, 458771, 536870912, 0, 524289, 536870917, 0, 524290, 536870916, 0, 524291, 536870916, 0, 524292, 536870916, 0, 524293, 536870916, 0, 524294, 536870916, 0, 524295, 536870916, 0, 524296, 536870916, 0, 524297, 536870916, 0, 524298, 536870916, 0, 524299, 536870916, 0, 524300, 536870916, 0, 524301, 536870915, 0, 524305, 536870917, 0, 524306, 536870916, 0, 524307, 536870915, 0, 589825, 536870920, 0, 589826, 536870919, 0, 589827, 536870919, 0, 589828, 536870919, 0, 589829, 536870919, 0, 589830, 536870919, 0, 589831, 536870919, 0, 589832, 536870919, 0, 589833, 536870919, 0, 589834, 536870919, 0, 589835, 536870919, 0, 589836, 536870919, 0, 589837, 536870918, 0, 589841, 536870920, 0, 589842, 536870919, 0, 589843, 536870918, 0 )
+tile_data = PoolIntArray( 458752, 536870914, 0, 458753, 536870913, 0, 458754, 536870913, 0, 458755, 536870913, 0, 458756, 536870913, 0, 458757, 536870913, 0, 458758, 536870913, 0, 458759, 536870913, 0, 458760, 536870913, 0, 458761, 536870913, 0, 458762, 536870913, 0, 458763, 536870913, 0, 458764, 536870913, 0, 458765, 536870913, 0, 458766, 536870913, 0, 458767, 536870913, 0, 458768, 536870913, 0, 458769, 536870913, 0, 458770, 536870913, 0, 458771, 536870912, 0, 524288, 536870917, 0, 524289, 536870916, 0, 524290, 536870916, 0, 524291, 536870916, 0, 524292, 536870916, 0, 524293, 536870916, 0, 524294, 536870916, 0, 524295, 536870916, 0, 524296, 536870916, 0, 524297, 536870916, 0, 524298, 536870916, 0, 524299, 536870916, 0, 524300, 536870916, 0, 524301, 536870916, 0, 524302, 536870916, 0, 524303, 536870916, 0, 524304, 536870916, 0, 524305, 536870916, 0, 524306, 536870916, 0, 524307, 536870915, 0, 589824, 536870920, 0, 589825, 536870919, 0, 589826, 536870919, 0, 589827, 536870919, 0, 589828, 536870919, 0, 589829, 536870919, 0, 589830, 536870919, 0, 589831, 536870919, 0, 589832, 536870919, 0, 589833, 536870919, 0, 589834, 536870919, 0, 589835, 536870919, 0, 589836, 536870919, 0, 589837, 536870919, 0, 589838, 536870919, 0, 589839, 536870919, 0, 589840, 536870919, 0, 589841, 536870919, 0, 589842, 536870919, 0, 589843, 536870918, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Portal" parent="." instance=ExtResource( 3 )]
+position = Vector2( 559.901, 186.156 )
+stage_scene = "res://Assets/Stages/Stage2.tscn"
