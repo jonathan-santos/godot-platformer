@@ -1,0 +1,66 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Assets/Scripts/PlayerMovement.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Sprites/Player/Idle0.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sprites/Player/Jump0.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sprites/Player/Jump1.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Sprites/Player/Jump3.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Sprites/Player/Jump4.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Sprites/Player/Run0.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Sprites/Player/Run1.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Sprites/Player/Run2.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Sprites/Player/Run3.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Sprites/Player/Run4.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Sprites/Player/Run7.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Tilesets/JungleDirtTileset.tres" type="TileSet" id=13]
+
+
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": false,
+"name": "jump",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "run",
+"speed": 10.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 32, 30 )
+
+[node name="World" type="Node"]
+
+[node name="Player" type="KinematicBody2D" parent="."]
+position = Vector2( 117.074, 191.113 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="AnimatedSprite" parent="Player"]
+frames = SubResource( 1 )
+animation = "jump"
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2( -0.15, 4.02 )
+scale = Vector2( 0.49, 0.93 )
+shape = SubResource( 2 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 13 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( 458752, 0, 0, 458753, 1, 0, 458754, 1, 0, 458755, 1, 0, 458756, 1, 0, 458757, 1, 0, 458758, 1, 0, 458759, 2, 0, 524288, 3, 0, 524289, 5, 0, 524290, 5, 0, 524291, 5, 0, 524292, 5, 0, 524293, 5, 0, 524294, 5, 0, 524295, 6, 0, 589824, 7, 0, 589825, 8, 0, 589826, 8, 0, 589827, 8, 0, 589828, 8, 0, 589829, 8, 0, 589830, 8, 0, 589831, 9, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
