@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Assets/Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Tilesets/JungleDirtTileset.tres" type="TileSet" id=2]
 [ext_resource path="res://Assets/Scenes/Portal.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/Scripts/Death.gd" type="Script" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
 
 [node name="World" type="Node"]
 
@@ -21,3 +24,15 @@ __meta__ = {
 [node name="Portal" parent="." instance=ExtResource( 3 )]
 position = Vector2( 559.901, 186.156 )
 stage_scene = "res://Assets/Stages/Stage2.tscn"
+
+[node name="DeathArea" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 302.303, 384.142 )
+scale = Vector2( 58.49, 2.34 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathArea"]
+shape = SubResource( 1 )
