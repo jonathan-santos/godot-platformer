@@ -1,13 +1,16 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Scenes/Portal.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/Tilesets/JungleDirtTileset.tres" type="TileSet" id=3]
 [ext_resource path="res://Assets/Scripts/Death.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Scenes/Coin.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Scenes/UI.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 [node name="World" type="Node2D"]
+scale = Vector2( 1.00986, 1.00986 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 32, 256 )
@@ -23,6 +26,7 @@ format = 1
 tile_data = PoolIntArray( 196614, 0, 0, 196615, 2, 0, 196619, 0, 0, 196620, 2, 0, 196625, 0, 0, 196626, 1, 0, 196627, 2, 0, 262150, 6, 0, 262151, 8, 0, 262155, 6, 0, 262156, 8, 0, 262161, 6, 0, 262162, 7, 0, 262163, 8, 0, 327681, 0, 0, 327682, 2, 0, 393217, 6, 0, 393218, 8, 0, 458757, 0, 0, 458758, 2, 0, 524293, 6, 0, 524294, 8, 0, 589825, 0, 0, 589826, 1, 0, 589827, 2, 0, 655361, 6, 0, 655362, 7, 0, 655363, 8, 0 )
 
 [node name="Area2D" type="Area2D" parent="."]
+editor/display_folded = true
 position = Vector2( 261.781, 370.703 )
 scale = Vector2( 77.68, 1 )
 script = ExtResource( 4 )
@@ -32,3 +36,26 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 1 )
+
+[node name="Coin" parent="." instance=ExtResource( 5 )]
+position = Vector2( 190.82, 199.807 )
+scale = Vector2( 0.475415, 0.475415 )
+
+[node name="Coin2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 63.9471, 135.625 )
+scale = Vector2( 0.475415, 0.475415 )
+
+[node name="Coin3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 223.658, 71.4416 )
+scale = Vector2( 0.475415, 0.475415 )
+
+[node name="Coin4" parent="." instance=ExtResource( 5 )]
+position = Vector2( 390.832, 71.4416 )
+scale = Vector2( 0.475415, 0.475415 )
+
+[node name="UI" parent="." instance=ExtResource( 6 )]
+anchor_bottom = 0.0
+margin_left = 288.077
+margin_top = 2.98526
+margin_right = 288.077
+margin_bottom = 2.98526

@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/Tilesets/JungleDirtTileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Assets/Scenes/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/Scenes/Portal.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Scenes/Enemy.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Scripts/Death.gd" type="Script" id=5]
+[ext_resource path="res://Assets/Scenes/Coin.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/Scenes/UI.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -24,13 +26,14 @@ position = Vector2( 37.4783, 220.993 )
 
 [node name="Portal" parent="." instance=ExtResource( 3 )]
 position = Vector2( 577.683, 220.993 )
-stage_scene = "res://Assets/Stages/Stage1.tscn"
+stage_scene = "res://Assets/Stages/Stage3.tscn"
 
 [node name="Enemy" parent="." instance=ExtResource( 4 )]
 position = Vector2( 126.654, 224.663 )
 scale = Vector2( 0.842489, 0.842489 )
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Death" type="Area2D" parent="."]
+editor/display_folded = true
 position = Vector2( 274.336, 396.43 )
 scale = Vector2( 360.539, -3.62929 )
 script = ExtResource( 5 )
@@ -38,5 +41,15 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Death"]
 shape = SubResource( 1 )
+
+[node name="Coin" parent="." instance=ExtResource( 6 )]
+position = Vector2( 208.013, 149.227 )
+scale = Vector2( 0.571539, 0.571539 )
+
+[node name="Coin2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 328.6, 226.101 )
+scale = Vector2( 0.571539, 0.571539 )
+
+[node name="UI" parent="." instance=ExtResource( 7 )]

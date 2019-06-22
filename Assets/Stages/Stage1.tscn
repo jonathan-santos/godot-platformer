@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Tilesets/JungleDirtTileset.tres" type="TileSet" id=2]
 [ext_resource path="res://Assets/Scenes/Portal.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Scripts/Death.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Scenes/Coin.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Scenes/UI.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -36,3 +38,17 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathArea"]
 shape = SubResource( 1 )
+
+[node name="Coin" parent="." instance=ExtResource( 5 )]
+position = Vector2( 174.183, 194.94 )
+scale = Vector2( 0.414366, 0.414366 )
+
+[node name="Coin2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 282.483, 195.843 )
+scale = Vector2( 0.414366, 0.414366 )
+
+[node name="Coin3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 407.93, 194.038 )
+scale = Vector2( 0.414366, 0.414366 )
+
+[node name="UI" parent="." instance=ExtResource( 6 )]
